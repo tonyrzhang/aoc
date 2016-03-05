@@ -80,7 +80,8 @@ function solve(key) {
 		out = ASSIGN(x);
 	}
 
-	newMap[key] = out.toString();
+	newMap[key] = out;
+
 	return out;
 }
 
