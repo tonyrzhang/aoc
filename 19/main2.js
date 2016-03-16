@@ -4,7 +4,7 @@ var fs = require('fs'),
 var rd = readline.createInterface({
   input: fs.createReadStream('input'),
   output: process.stdout,
-	terminal: false
+  terminal: false
 });
 
 var map = {};
@@ -29,18 +29,18 @@ function findMolecules() {
 
 rd.on('line', function(line) {
   var match = /(\w+) => (\w+)/.exec(line);
-	if (match) {
-		if (!map[match[2]]) {
-			map[match[2]] = [];
-		}
-		map[match[2]].push(match[1]);
-	}
-	else if(line.length > 0) {
-		target = line;
-	}
+  if (match) {
+    if (!map[match[2]]) {
+      map[match[2]] = [];
+    }
+    map[match[2]].push(match[1]);
+  }
+  else if(line.length > 0) {
+    target = line;
+  }
 });
 
 rd.on('close', function() {
-	findMolecules();
-	console.log(sum);
+  findMolecules();
+  console.log(sum);
 });
